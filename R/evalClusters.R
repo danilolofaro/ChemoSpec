@@ -11,6 +11,7 @@ function(spectra, pkg = "NbClust", hclst = NULL,  k = NULL, h = NULL, crit = "Du
 			stop("You need install package NbClust to use this function/option")
 			}
 		res <- NbClust::NbClust(spectra$data, ...)
+		return(res)
 		}
 
 	if (pkg == "clusterCrit") {
