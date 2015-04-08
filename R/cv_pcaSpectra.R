@@ -29,11 +29,11 @@ function (spectra, pcs, choice = "noscale", repl = 50, segments = 4,
 	if (identical(choice, "noscale")) {centscaled <- scale(row.scaled, center = TRUE, scale = FALSE)}
 	
 	if (identical(choice, "autoscale")) {
-		col.sd <- sd(row.scaled)
+		col.sd <- apply(row.scaled,2,FUN = sd)
 		centscaled <- scale(row.scaled, center = TRUE, scale = col.sd)}
 
 	if (identical(choice, "Pareto")) {
-		col.sd <- sd(row.scaled)
+		col.sd <- apply(row.scaled,2,FUN = sd)
 		centscaled <- scale(row.scaled, center = TRUE, scale = col.sd^0.5)}
 
 	# Filzmoser's stuff follows... (modified slightly)
